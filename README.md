@@ -1,7 +1,3 @@
-
-ID : 5team@gkn2019hotmail.onmicrosoft.com  
-PW : 6400
-
 ![image](https://user-images.githubusercontent.com/28293389/81536861-34084480-93a7-11ea-866f-c09e24ef9412.png)
 
 # 5조 - 카페포미
@@ -38,7 +34,7 @@ PW : 6400
 - 고객 : 고객 주문 오류를 최소화 한다. ( Core )
 - 매장 : 접수 된 주문에 대해 오류를 최소화 한다. ( Supporting )
 - 고객관리 : 주문 상태에 대해 고객에게 정확한 알람을 제공한다. ( 외주 Supporting )
-- {+)상품관리 : 상품 추가시 Order목록에 추가되어 고객에게 제공된다 (Supporting)
+- {+)상품관리 : 상품 추가시 Order목록에 추가되어 고객에게 제공된다 (General)
 
 # 서비스 시나리오
 
@@ -54,14 +50,14 @@ PW : 6400
 1. 매장에서 주문 내역 취소 요청을 받으면 취소가 가능하다면 취소한다.
 1. 주문 내역이 취소되면 결제가 환불 된다.
 1. 주문 진행 상태가 바뀔 때 마다 SMS로 알림을 보낸다.
-1. (+) 상품 추가시 Order목록에 추가되어 고객에게 제공된다. 
+1. (+) 상품 추가시 Product 목록에 추가하여 상품정보를 고객에게 제공된다. 
 
 - [비기능적 요구사항]
 1. 트랜잭션
     1. 주문시 결제가 성립되어야 한다.  Sync 호출 
 1. 장애격리
     1. 매장 서비스가 Down 되어도 주문/취소는 가능해야 한다.  Async (event-driven), Eventual Consistency
-    1. (+) 오더 서비스가 Down 되어도 상품 추가가 가능해야 한다. Async (event-driven)
+    1. (+) 상품정보를 제공하는 서비스 추가가 타 서비스에 영향이 없어야 한다. Async (event-driven)
 1. 성능
     1. 고객이 주문 진행 상태를 수시로 조회할 수 있어야 한다.  CQRS
     1. 고객은 주문 진행 상태를 SMS로 확인할 수 있어야 한다.  Event driven
@@ -92,7 +88,12 @@ PW : 6400
 
 
     - Order cancel 프로세스 추가 : Event, Policy 추가
-  
+    
+### (+)상품관리 추가 모델   
+    ![image](https://user-images.githubusercontent.com/63624054/81810699-614b2300-955e-11ea-87c0-6ead0925bb0d.png)
+
+
+    - Product Create/Delete BC 추가  
   
   
 
@@ -122,7 +123,7 @@ PW : 6400
     1. 주문시 결제가 성립되어야 한다.  Sync 호출 
 1. 장애격리
     1. 매장 서비스가 Down 되어도 주문/취소는 가능해야 한다.  Async (event-driven), Eventual Consistency
-    1. (+)상품 추가는 Order가 Down 되어도 추가가 가능해야 한다.  Async (event-driven), Eventual Consistency
+    1. (+)상품 는 Order가 Down 되어도 추가가 가능해야 한다.  Async (event-driven), Eventual Consistency
 1. 성능
     1. 고객이 주문 진행 상태를 수시로 조회할 수 있어야 한다.  CQRS
     1. 고객은 주문 진행 상태를 SMS로 확인할 수 있어야 한다.  Event driven
@@ -520,4 +521,4 @@ http http://customer:8080/orderStatuses
 ```
 
 
-# 추가 도메인
+# 상품관리 추가(목차별 (+)로 구분)
