@@ -64,7 +64,7 @@ PW : 6400
     1. 주문시 결제가 성립되어야 한다.  Sync 호출 
 1. 장애격리
     1. 매장 서비스가 Down 되어도 주문/취소는 가능해야 한다.  Async (event-driven), Eventual Consistency
-    1.(+) 오더 서비스가 Down 되어도 상품 추가가 가능해야 한다. Async (event-driven)
+    1. (+) 오더 서비스가 Down 되어도 상품 추가가 가능해야 한다. Async (event-driven)
 1. 성능
     1. 고객이 주문 진행 상태를 수시로 조회할 수 있어야 한다.  CQRS
     1. 고객은 주문 진행 상태를 SMS로 확인할 수 있어야 한다.  Event driven
