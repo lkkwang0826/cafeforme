@@ -8,7 +8,7 @@ PW : 6400
 ![image](https://user-images.githubusercontent.com/28293389/81536861-34084480-93a7-11ea-866f-c09e24ef9412.png)
 
 # 5조 - 카페포미
-        지윤진(리더), 한국진, 최영준, 이교광
+        이교광
 
 - 체크포인트 : https://workflowy.com/s/assessment-check-po/T5YrzcMewfo4J6LW
 
@@ -125,9 +125,12 @@ PW : 6400
     1. 주문시 결제가 성립되어야 한다.  Sync 호출 
 1. 장애격리
     1. 매장 서비스가 Down 되어도 주문/취소는 가능해야 한다.  Async (event-driven), Eventual Consistency
+    1. (+)상품 추가는 Order가 Down 되어도 추가가 가능해야 한다.  Async (event-driven), Eventual Consistency
 1. 성능
     1. 고객이 주문 진행 상태를 수시로 조회할 수 있어야 한다.  CQRS
     1. 고객은 주문 진행 상태를 SMS로 확인할 수 있어야 한다.  Event driven
+    1. (+)관리자가 상품을 수시로 조회할 수 있어야 한다.  CQRS
+    1. (+)고객이 상품 추가 목록을 SMS로 확인할 수 있어야 한다.  Event driven
 
 
 ## 업무 프로세스 흐름도
@@ -518,3 +521,6 @@ kubectl exec -it httpie bin/bash
 ```
 http http://customer:8080/orderStatuses
 ```
+
+
+# 추가 도메인
