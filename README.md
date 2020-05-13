@@ -95,7 +95,7 @@
     - Order cancel 프로세스 추가 : Event, Policy 추가
     
 ### (+)상품관리 추가 모델   
-![image](https://user-images.githubusercontent.com/63624054/81812311-e8999600-9560-11ea-828b-27211a29a924.png)
+![image](https://user-images.githubusercontent.com/63624054/81853555-89a34380-9597-11ea-973f-ad25201b057b.png)
 
 
     - Product Create/Delete BC 추가  
