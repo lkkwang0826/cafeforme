@@ -554,7 +554,8 @@ http http://customer:8080/orderStatuses
 # 2. Product\Event, View : 다른 서비스 영향 없이 신규 서비스(상품관리) 추가
    Product BC에 추가된 상품추가, 삭제 Event와 Event발생에 따른 Product Status를 보여주는 View 추가
    
-[Product 추가] 
+- Product 추가
+
 package Cafe4me(5.Team);
 
 public class ProductInserted extends AbstractEvent {
@@ -598,7 +599,8 @@ public class ProductInserted extends AbstractEvent {
     }
 }
 
-[Product 삭제]
+- Product 삭제
+
 package Cafe4me(5.Team);
 
 public class ProductDeleted extends AbstractEvent {
@@ -619,7 +621,7 @@ public class ProductDeleted extends AbstractEvent {
 }
 
 
-[Product Status 제공용 View Table] - CQRS
+- Product Status 제공용 View Table  : CQRS
 package Cafe4me(5.Team);
 
 import Cafe4me(5.Team).config.kafka.KafkaProcessor;
