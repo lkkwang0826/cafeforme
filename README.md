@@ -50,7 +50,7 @@
 1. 매장에서 주문 내역 취소 요청을 받으면 취소가 가능하다면 취소한다.
 1. 주문 내역이 취소되면 결제가 환불 된다.
 1. 주문 진행 상태가 바뀔 때 마다 SMS로 알림을 보낸다.
-1. (+) 상품 추가시 Product 목록에 추가되어 상품정보를 고객에게 제공다. 
+1. (+) 상품 추가시 Product 목록에 추가되어 상품정보를 고객에게 제공한다. 
 
 - [비기능적 요구사항]
 1. 트랜잭션
@@ -90,7 +90,7 @@
     - Order cancel 프로세스 추가 : Event, Policy 추가
     
 ### (+)상품관리 추가 모델   
-    ![image](https://user-images.githubusercontent.com/63624054/81810699-614b2300-955e-11ea-87c0-6ead0925bb0d.png)
+![image](https://user-images.githubusercontent.com/63624054/81812311-e8999600-9560-11ea-828b-27211a29a924.png)
 
 
     - Product Create/Delete BC 추가  
