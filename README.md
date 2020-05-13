@@ -145,7 +145,8 @@
 ![image](https://user-images.githubusercontent.com/28293389/81763871-3683af00-950b-11ea-96af-5ac25a5631a4.png)
 
 ## (+) 헥사고날 아키텍처 다이어그램(Product 추가)
-![image](https://user-images.githubusercontent.com/63624054/81816061-c22a2980-9565-11ea-87dd-cc438b991767.png)
+![image](https://user-images.githubusercontent.com/63624054/81816810-d02c7a00-9566-11ea-99aa-b95bc19f3879.png)
+
 
 # 구현:
 
