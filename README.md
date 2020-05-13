@@ -1,7 +1,8 @@
 ![image](https://user-images.githubusercontent.com/28293389/81536861-34084480-93a7-11ea-866f-c09e24ef9412.png)
 
 # 5조 - 카페포미
-        이교광
+        이교광(개별)
+# 기능 추가(상품관리 서비스) 관련 항목은 각 카테고리별 (+) 표시, 그림은 추가영역을 구분 표시
 
 - 체크포인트 : https://workflowy.com/s/assessment-check-po/T5YrzcMewfo4J6LW
 
@@ -531,11 +532,9 @@ http http://customer:8080/orderStatuses
 ```
 
 
-# 서비스 추가 : 상품관리 추가(목차별 (+)로 구분)
+# 상품관리 추가 관련 소스
 
-# 상품관리 추가 관련 소스 추가분
-
-# 1. Customer\Policy
+# 1. Customer\Policy    :    Async (event-driven)
    Product BC에서 Product 추가 삭제 시 Customer BC OrderStart Handler에 메시지 전송
 
     @StreamListener(KafkaProcessor.INPUT)
@@ -552,7 +551,7 @@ http http://customer:8080/orderStatuses
             System.out.println("##### listener OrderStart : " + productDeleted.toJson());
         }
     }
-# 2. Product\Event, View
+# 2. Product\Event, View : 다른 서비스 영향 없이 신규 서비스(상품관리) 추가
    Product BC에 추가된 상품추가, 삭제 Event와 Event발생에 따른 Product Status를 보여주는 View 추가
    
 [Product 추가] 
@@ -620,7 +619,7 @@ public class ProductDeleted extends AbstractEvent {
 }
 
 
-[Product Status 제공용 View Table]-CQRS
+[Product Status 제공용 View Table] - CQRS
 package Cafe4me(5.Team);
 
 import Cafe4me(5.Team).config.kafka.KafkaProcessor;
