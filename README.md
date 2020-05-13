@@ -76,7 +76,7 @@
   ![image](https://user-images.githubusercontent.com/487999/79684159-3543c700-826a-11ea-8d5f-a3fc0c4cad87.png)
   
 ## (+) 상품관리조직 추가 (Vertically-Aligned)  
-  ![image](https://user-images.githubusercontent.com/63624054/81814070-3dd6a700-9563-11ea-8020-681577ae28e4.png)
+![image](https://user-images.githubusercontent.com/63624054/81817102-2b5e6c80-9567-11ea-9a7e-2d94f8b38def.png)
 
 상품관리팀 추가 (Vertically-Aligned)
 
