@@ -555,3 +555,72 @@ http http://customer:8080/orderStatuses
 # 2. Product\Event, View
    Product BC에 추가된 상품추가, 삭제 Event와 Event발생에 따른 Product Status를 보여주는 View 추가
    
+[Product 추가] 
+package Cafe4me(5.Team);
+
+public class ProductInserted extends AbstractEvent {
+
+    private Long id;
+    private Long productId;
+    private Integer price;
+    private String status;
+
+    public ProductInserted(){
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}
+
+[Product 삭제]
+package Cafe4me(5.Team);
+
+public class ProductDeleted extends AbstractEvent {
+
+    private Long id;
+
+    public ProductDeleted(){
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+}
+
+
+[Product Status 제공용 View Table]-CQRS
+
+
+   
