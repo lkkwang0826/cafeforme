@@ -532,3 +532,26 @@ http http://customer:8080/orderStatuses
 
 
 # 서비스 추가 : 상품관리 추가(목차별 (+)로 구분)
+
+# 상품관리 추가 관련 소스 추가분
+
+# 1. Customer\Policy
+   Product BC에서 Product 추가 삭제 시 Customer BC OrderStart Handler에 메시지 전송
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverProductInserted_OrderStart(@Payload ProductInserted productInserted){
+
+        if(productInserted.isMe()){
+            System.out.println("##### listener OrderStart : " + productInserted.toJson());
+        }
+    }
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverProductDeleted_OrderStart(@Payload ProductDeleted productDeleted){
+
+        if(productDeleted.isMe()){
+            System.out.println("##### listener OrderStart : " + productDeleted.toJson());
+        }
+    }
+# 2. Product\Event, View
+   Product BC에 추가된 상품추가, 삭제 Event와 Event발생에 따른 Product Status를 보여주는 View 추가
+   
