@@ -74,6 +74,10 @@
 
 ## TO-BE 조직 (Vertically-Aligned)
   ![image](https://user-images.githubusercontent.com/487999/79684159-3543c700-826a-11ea-8d5f-a3fc0c4cad87.png)
+  
+## (+) 상품괸리 조직 추가 (Vertically-Aligned)  
+  ![image](https://user-images.githubusercontent.com/63624054/81813377-58f4e700-9562-11ea-85fb-98f9e98ec49d.png)
+
 
 
 ## Event Storming 결과
