@@ -1,11 +1,11 @@
-#### 1. ÄÁÅ×ÀÌ³Ê Å¬·¯½ºÅÍ ¸¸µé±â
-#### 2. ÄÁÅ×ÀÌ³Ê ·¹Áö½ºÆ®¸® ¸¸µé±â
-#### 3. (DevOps) Connection ¿¬°á
+#### 1. ì»¨í…Œì´ë„ˆ í´ëŸ¬ìŠ¤í„° ë§Œë“¤ê¸°
+#### 2. ì»¨í…Œì´ë„ˆ ë ˆì§€ìŠ¤íŠ¸ë¦¬ ë§Œë“¤ê¸°
+#### 3. (DevOps) Connection ì—°ê²°
 - Setting - Pipeline - Service Connections
 Docker Registry - Azure Container Registry
-Service Connection name (acr) ¼³Á¤
+Service Connection name (acr) ì„¤ì •
 
-#### 4. Cluster ¿¬°á ¹× È®ÀÎ
+#### 4. Cluster ì—°ê²° ë° í™•ì¸
 ```
 az aks get-credentials --resource-group [azure-resource-Group-name] --name [azure-cluster-name]
 ```
@@ -14,12 +14,12 @@ kubectl get svc
 ```
 
 
-#### 5. AKS - ACR ¿¬°á
+#### 5. AKS - ACR ì—°ê²°
 ```
 az aks update -n [azure-cluster-name] -g [azure-resource-Group-name] --attach-acr [azure-acr-name]
 ```
 
-#### 6. Kafka ¼³Ä¡ (with Helm version 3.0 after)
+#### 6. Kafka ì„¤ì¹˜ (with Helm version 3.0 after)
 ```
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 kubectl --namespace kube-system create sa tiller
@@ -57,13 +57,13 @@ variables:
 
 #### 7. (DevOps) Environment
 - Pipelines - Environment
-- Name : aks - Kubenetes - Cluster ¼±ÅÃ - Create
+- Name : aks - Kubenetes - Cluster ì„ íƒ - Create
 
-#### 8. (DevOps) Create Pipeline
+#### 8. (DevOps) Create Pipeline   : ì†ŒìŠ¤ë³„ ë°˜ë³µ 
 - GitHub YAML
-- Project ¼±ÅÃ - Run
+- Project ì„ íƒ - Run
 
-#### 9. Kafka Topic »ı¼º ¹× È®ÀÎ
+#### 9. Kafka Topic ìƒì„± ë° í™•ì¸
 - Azure
 ```
 kubectl -n kafka exec my-kafka-0 -- /usr/bin/kafka-topics --zookeeper my-kafka-zookeeper:2181 --topic eventTopic --create --partitions 1 --replication-factor 1
@@ -80,27 +80,27 @@ kafka-topics.bat --zookeeper localhost:2181 --topic eventTopic --create --partit
 kafka-topics.bat --zookeeper localhost:2181 --list
 ```
 
-#### 10. Event ¹ßÇà ¹× ¼ö½Å
+#### 10. Event ë°œí–‰ ë° ìˆ˜ì‹ 
 - Azure
-- ¹ßÇà
+- ë°œí–‰
 ```
 kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-producer --broker-list my-kafka:9092 --topic eventTopic
 ```
-- ¼ö½Å
+- ìˆ˜ì‹ 
 ```
 kubectl -n kafka exec -ti my-kafka-0 -- /usr/bin/kafka-console-consumer --bootstrap-server my-kafka:9092 --topic eventTopic --from-beginning
 ```
 - Local
-- ¹ßÇà
+- ë°œí–‰
 ```
 bin/windows/kafka-console-producer.bat --broker-list http://localhost:9092 --topic eventTopic
 ```
-- ¼ö½Å
+- ìˆ˜ì‹ 
 ```
 bin/windows/kafka-console-consumer.bat --bootstrap-server http://localhost:9092 --topic eventTopic --from-beginning
 ```
 
-#### 11. Cloud ¿¡ Httpie ¼³Ä¡ ¹× Á¢¼Ó
+#### 11. Cloud ì— Httpie ì„¤ì¹˜ ë° ì ‘ì†
 ```
 cat <<EOF | kubectl apply -f -
 apiVersion: "v1"
@@ -122,6 +122,41 @@ EOF
 ```
 kubectl exec -it httpie bin/bash
 ```
+
+#### 12. ì‹¤í–‰ í™•ì¸
+
+kubectl exec -it httpie bin/bash
+
+root@httpie:/# http customer:8080/orders
+
+root@httpie:/# http customer:8080/orders product="aa" qty=1 price=2
+
+ê²°ê³¼í™•ì¸
+HTTP/1.1 201
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 14 May 2020 04:19:12 GMT
+Location: http://customer:8080/orders/1
+Transfer-Encoding: chunked
+
+{
+    "_links": {
+        "order": {
+            "href": "http://customer:8080/orders/1"
+        },
+        "self": {
+            "href": "http://customer:8080/orders/1"
+        }
+    },
+    "cannotOrderCanceled": false,
+    "price": 2,
+    "product": "aa",
+    "qty": 1,
+    "status": null
+}
+C
+
+
+
 
 
 ## Site
