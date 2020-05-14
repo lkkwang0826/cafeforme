@@ -105,6 +105,7 @@
 
     - Product Create/Delete BC 추가  
   
+![image](https://user-images.githubusercontent.com/63624054/81902750-a2454500-95fb-11ea-8833-97e8ce15be7d.png)
   
 
 ### 2차 완성본에 대한 기능적/비기능적 요구사항을 커버하는지 검증
